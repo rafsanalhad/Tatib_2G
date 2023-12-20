@@ -115,6 +115,7 @@
             <div class="mb-2">
               <div class="flex items-center">
                 <div class="w-2/4">
+                  <input type="hidden" name="user_id" id="user_id">
                   <label for="nama" id="namaLabel" class="block text-sm font-medium text-gray-900">Nama</label>
                 </div>
                 <div class="w-3/4 inline-flex items-center">
@@ -444,6 +445,7 @@
         $("#jenisPelanggaran").val(response.jenis_kelamin);
         $('#imgInputDosen').val('');
         $('#preview').html('<img src="<?= BASEURL; ?>/img/profil/' + response.dosen_img + '" alt="">');
+        $('#user_id').val(response.user_id);
         $('#noImgDosen').addClass('hidden');
       },
       error: function(error) {

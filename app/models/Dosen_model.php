@@ -114,7 +114,7 @@ class Dosen_model
         $checkData = $this->getDosenByNip($data['nip']);
         $dataUploaded = $_FILES['imgDosen']['name'];
         $uploadedFileNameEdit = $this->handleFileUploadEdit($dataUploaded, $checkData['dosen_img']);
-        $query = "UPDATE dosen SET nama = :nama, TTL = :TTL, jenis_kelamin = :jenis_kelamin, jabatan = :jabatan, email = :email, no_phone = :no_phone, alamat = :alamat, dosen_img= :dosen_img WHERE nip = :nip";
+        $query = "UPDATE dosen SET nama = :nama, TTL = :TTL, jenis_kelamin = :jenis_kelamin, jabatan = :jabatan, email = :email, no_phone = :no_phone, alamat = :alamat, dosen_img= :dosen_img, nip = :nip WHERE user_id = :user_id";
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('TTL', $data['ttl']);
@@ -125,6 +125,7 @@ class Dosen_model
         $this->db->bind('alamat', $data['alamat']);
         $this->db->bind('dosen_img', $uploadedFileNameEdit);
         $this->db->bind('nip', $data['nip']);
+        $this->db->bind('user_id', $data['user_id']);
         $this->db->execute();
         return $this->db->rowCount();
     }
