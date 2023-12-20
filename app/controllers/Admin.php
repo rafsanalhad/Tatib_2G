@@ -46,22 +46,24 @@ class Admin extends Controller{
     }
     public function editDosen(){
         if ($this->model('Dosen_model')->editDataDosen($_POST) > 0) {
-            echo "berhasil";
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            header('Location: ' . BASEURL . '/admin/dosen');
             exit;
         }else{
-           echo "gagal";
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            header('Location: ' . BASEURL . '/admin/dosen');
             exit;
         }
     }
     public function hapusDosen($nip, $userId){
         if ($this->model('Dosen_model')->hapusDataDosen($nip) > 0) {
             if($this->model('User_model')->hapusDataUser($userId)>0){
-            echo "berhasil";
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
             header('Location: ' . BASEURL . '/admin/dosen');
             exit;
             }
         }else{
-           echo "gagal";
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
             header('Location: ' . BASEURL . '/admin/dosen');
             exit;
         }
@@ -93,11 +95,11 @@ class Admin extends Controller{
 
     public function editMahasiswa(){
         if ($this->model('Mahasiswa_model')->editDataMahasiswa($_POST) > 0) {
-            echo "berhasil";
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
             header('Location: ' . BASEURL . '/admin/mahasiswa');
             exit;
         }else{
-            echo "gagal";
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
             header('Location: ' . BASEURL . '/admin/mahasiswa');
             exit;
         }
@@ -105,12 +107,12 @@ class Admin extends Controller{
     public function hapusMahasiswa($id, $userID){
         if ($this->model('Mahasiswa_model')->hapusDataMahasiswa($id) > 0) {
             if($this->model('User_model')->hapusDataUser($userID) > 0){
-            echo "berhasil";
+            Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: ' . BASEURL . '/admin/mahasiswa');
             exit;
             }
         }else{
-            echo "gagal";
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
             header('Location: ' . BASEURL . '/admin/mahasiswa');
             exit;
         }
