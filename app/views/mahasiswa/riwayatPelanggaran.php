@@ -139,9 +139,9 @@ const modalKompen = document.getElementById('modalProses');
             type: 'GET',
             dataType: 'json',
             success: function(response) {
-              console.log(response.nama_sanksi);
+              console.log(response.sanksi_pelanggaran);
               $('#iniIdUpdate').val(response.riwayat_id);
-              $('#catatan').html(response.nama_sanksi);
+              $('#catatan').html(response.sanksi_pelanggaran);
             },
             error: function(error) {
               console.log(error);
