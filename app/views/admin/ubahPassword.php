@@ -7,10 +7,15 @@
       <div class=" bg-white h-10 items-center subtitle_dashboard">
         <div class="ml-4 mt-1">Masukkan Password Baru</div>
       </div>
-      <?php Flasher::flash();?>
+
+      <?php
+      if (isset($_SESSION['flash'])) {
+        Flasher::flash();
+      }
+      ?>
       <div class=" bg-white p-4 rounded-b-lg border-t-2 border-neutral-300 text-center">
-      <form action="<?= BASEURL; ?>/Admin/ubahPwAksi" method="post">
-        <div class=" bg-white p-4 rounded-b-lg border-t-2 border-neutral-300 text-center">
+        <form action="<?= BASEURL; ?>/Admin/ubahPwAksi" method="post">
+          <div class=" bg-white p-4 rounded-b-lg border-t-2 border-neutral-300 text-center">
             <label for="newPass">Password Baru:</label>
             <br>
             <input class="w-[250px] h-[40px] border border-neutral-400 rounded-lg mt-3 pl-2" type="hidden" name="username" id="username" value="<?= $_SESSION['username']; ?>">
@@ -22,10 +27,10 @@
             <input class="w-[250px] h-[40px] border border-neutral-400 rounded-lg mt-3 pl-2" type="password" name="confPass" id="confPass">
             <br>
             <button type="submit" class="w-[170px] h-[50px] items-center bg-sky-600 rounded-3xl text-white text-2xl font-normal font-['Inter'] mt-5  hover:bg-sky-700">Simpan</button>
-        </div>
-      </form>
+          </div>
+        </form>
       </div>
     </div>
     <script>
-        $('#ubahpassword_nav').addClass('bg-blue-400');
+      $('#ubahpassword_nav').addClass('bg-blue-400');
     </script>

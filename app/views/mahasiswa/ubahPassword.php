@@ -7,7 +7,11 @@
       <div class=" bg-white h-10 items-center subtitle_dashboard">
         <div class="ml-4 mt-1">Masukkan Password Baru</div>
       </div>
-      <?php Flasher::flash();?>
+      <?php 
+      if(isset($_SESSION['flash'])){
+        Flasher::flash();
+      }
+      ?>
       <div class=" bg-white p-4 rounded-b-lg border-t-2 border-neutral-300 text-center">
       <form action="<?= BASEURL; ?>/Mahasiswa/ubahPw" method="post">
         <div class=" bg-white p-4 rounded-b-lg border-t-2 border-neutral-300 text-center">
