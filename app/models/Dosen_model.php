@@ -51,7 +51,7 @@ class Dosen_model
         $this->db->bind('nip', $data['nip']);
         $queryCheckNip = $this->db->single();
 
-        if($queryCheckNip != null){
+        if ($queryCheckNip != null) {
             return 0;
         }
 
@@ -112,11 +112,10 @@ class Dosen_model
     public function editDataDosen($data)
     {
         $checkData = $this->getDosenByNip($data['nip']);
-        $dataUploaded= $_FILES['imgDosen']['name'];
+        $dataUploaded = $_FILES['imgDosen']['name'];
         $uploadedFileNameEdit = $this->handleFileUploadEdit($dataUploaded, $checkData['dosen_img']);
         $query = "UPDATE dosen SET nama = :nama, TTL = :TTL, jenis_kelamin = :jenis_kelamin, jabatan = :jabatan, email = :email, no_phone = :no_phone, alamat = :alamat, dosen_img= :dosen_img WHERE nip = :nip";
         $this->db->query($query);
-        $this->db->bind('nip', $data['nip']);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('TTL', $data['ttl']);
         $this->db->bind('jenis_kelamin', $data['jenkel']);
@@ -125,6 +124,7 @@ class Dosen_model
         $this->db->bind('no_phone', $data['no_phone']);
         $this->db->bind('alamat', $data['alamat']);
         $this->db->bind('dosen_img', $uploadedFileNameEdit);
+        $this->db->bind('nip', $data['nip']);
         $this->db->execute();
         return $this->db->rowCount();
     }
@@ -162,7 +162,7 @@ class Dosen_model
             } else {
                 echo "File yang diunggah bukan gambar atau format file tidak diizinkan.";
             }
-        }else{
+        } else {
             return $dataTemp;
         }
     }
