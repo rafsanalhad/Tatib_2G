@@ -161,7 +161,7 @@
                 <div class="w-3/4 inline-flex items-center">
                   <div class="mr-2 flex-shrink-0 flex titikDua">:</div>
                   <div class="flex-grow flex_error_msg">
-                    <select name="jenkel" id="jenisPelanggaran" class="mt-1 p-2 w-full border rounded-md">
+                    <select name="jenkel" id="jenisKelamin" class="mt-1 p-2 w-full border rounded-md">
                       <option name="jenkel" value="null">Pilih Jenis Kelamin</option>
                       <option name="jenkel" value="L">Laki-laki</option>
                       <option name="jenkel" value="P">Perempuan</option>
