@@ -350,7 +350,7 @@
 
       var imgInputValue = $("#imgInputMahasiswa").val();
       var previewContent = $("#preview").html();
-      let jenkel = $('#jenisPelanggaran').val();
+      let jenkel = $('#jenisKelamin').val();
       let prodi = $('#prodi').val();
 
       // Melakukan validasi
